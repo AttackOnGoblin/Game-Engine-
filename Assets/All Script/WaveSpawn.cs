@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 public class WaveSpawn : MonoBehaviour {
 
@@ -8,24 +10,32 @@ public class WaveSpawn : MonoBehaviour {
 
     public float timeBeteweenWaves = 5f;
     private float countdown = 2f;
-    private int WaveNumber = 1;
+
+    public Text WaveCountdownText;
+
+    private int WaveNumber = 0;
 
     void Update()
     {
         if (countdown <= 0f)
         {
-            SpawnWave();
+            StartCoroutine(SpawnWave());
             countdown = timeBeteweenWaves;
         }
         countdown -= Time.deltaTime;
+
+        WaveCountdownText.text = Mathf.Round(countdown).ToString();
     }
-    void SpawnWave()
+
+    IEnumerator SpawnWave()
     {
+        WaveNumber++;
         for (int i = 0; i < WaveNumber; i++)
         {
             SpawnEnemy();
+            yield return new WaitForSeconds(0.5f);
         }
-        WaveNumber++;
+        
     }
 
     void SpawnEnemy()
