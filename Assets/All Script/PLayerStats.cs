@@ -11,7 +11,7 @@ public class PLayerStats : MonoBehaviour {
     public static int Life;
     public int startLife = 5;
 
-    public int Wave;
+    public static int Wave;
 
     void Start()
     {

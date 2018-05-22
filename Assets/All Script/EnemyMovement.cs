@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    public float speed = 12f;
+    public float speed = 10f;
 
     public int health = 100;
 

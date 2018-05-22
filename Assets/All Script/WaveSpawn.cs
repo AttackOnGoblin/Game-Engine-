@@ -8,7 +8,7 @@ public class WaveSpawn : MonoBehaviour {
 
     public Transform spawnPoint;
 
-    public float timeBeteweenWaves = 5f;
+    public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
     public Text WaveCountdownText;
@@ -20,7 +20,7 @@ public class WaveSpawn : MonoBehaviour {
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
-            countdown = timeBeteweenWaves;
+            countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
 
@@ -33,6 +33,7 @@ public class WaveSpawn : MonoBehaviour {
     {
         WaveNumber++;
         PLayerStats.Wave++;
+
         for (int i = 0; i < WaveNumber; i++)
         {
             SpawnEnemy();
