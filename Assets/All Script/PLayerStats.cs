@@ -9,11 +9,15 @@ public class PLayerStats : MonoBehaviour {
     public int startMoney = 100;
 
     public static int Life;
-    public int startLife = 3;
+    public int startLife = 5;
+
+    public int Wave;
 
     void Start()
     {
         Money = startMoney;
         Life = startLife;
+
+        Wave = 0;
     }
 }

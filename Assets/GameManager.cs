@@ -4,12 +4,16 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-   public static bool gameEnded = false;
+   public static bool GameIsOver = false;
+
+    public GameObject gameOverUI;
 
 	void Update () {
 
-        if (gameEnded)
+        if (GameIsOver)
             return;
+
+       
 
 		if (PLayerStats.Life <= 0)
         {
@@ -18,7 +22,7 @@ public class GameManager : MonoBehaviour {
 	}
     void EndGame()
     {
-        gameEnded = true;
-        Debug.Log("Game Over");
+        GameIsOver = true;
+        gameOverUI.SetActive(true);
     }
 }
