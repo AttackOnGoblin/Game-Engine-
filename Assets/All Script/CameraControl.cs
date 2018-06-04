@@ -2,7 +2,7 @@
 
 public class CameraControl : MonoBehaviour {
 
-    private bool Movement = true;
+  
 
     public float panSpeed = 30f;
     public float panBorderThickness = 10f;
@@ -20,11 +20,7 @@ public class CameraControl : MonoBehaviour {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Movement = !Movement;
-
-        if (!Movement)
-            return;
+        
 
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness )
