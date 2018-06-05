@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class Pause : MonoBehaviour {
@@ -24,5 +24,14 @@ public class Pause : MonoBehaviour {
         {
             Time.timeScale = 1f; 
         }
+    }
+    public void restart()
+    {
+        Toggle();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Menu()
+    {
+        Debug.Log("GO TO MENU");
     }
 }
