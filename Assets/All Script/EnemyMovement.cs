@@ -1,13 +1,18 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour {
 
     public float speed = 10f;
 
-    public int health = 100;
+    public int startHealth = 100;
+    private float health;
 
     public int GainMoney = 30;
+
+    [Header("Unity")]
+    public Image healthBar;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -15,12 +20,15 @@ public class EnemyMovement : MonoBehaviour {
     void Start ()
     {
         target = Waypoints.points[0];
+        health = startHealth;
 
     }
 
     public void TakeDamage ( int amount )
     {
         health -= amount;
+
+        healthBar.fillAmount = health/startHealth;
 
         if (health <=0)
         {
@@ -31,6 +39,8 @@ public class EnemyMovement : MonoBehaviour {
     void Die()
     {
         PLayerStats.Money += GainMoney;
+
+        WaveSpawn.EnemiesAlive--;
         Destroy(gameObject);
     }
 
@@ -62,6 +72,7 @@ public class EnemyMovement : MonoBehaviour {
     void EndPath()
     {
         PLayerStats.Life--;
+        WaveSpawn.EnemiesAlive--;
         Destroy(gameObject);
     }
 	
