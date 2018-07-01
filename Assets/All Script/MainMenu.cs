@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
-    public string leveltoLoad = "MainScene";
+    public string leveltoLoad = "Select Level";
 
 	public void Play()
     {
@@ -14,4 +14,5 @@ public class MainMenu : MonoBehaviour {
         Debug.Log("Exit");
         Application.Quit();
     }
+
 }
