@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour {
     [Header("Unity")]
     public Image healthBar;
 
+    private bool isDead = false;
+
     private Transform target;
     private int wavepointIndex = 0;
 
@@ -30,7 +32,7 @@ public class EnemyMovement : MonoBehaviour {
 
         healthBar.fillAmount = health/startHealth;
 
-        if (health <=0)
+        if (health <=0 && !isDead)
         {
             Die();
         }
@@ -38,6 +40,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void Die()
     {
+        isDead = true;
         PLayerStats.Money += GainMoney;
 
         WaveSpawn.EnemiesAlive--;
