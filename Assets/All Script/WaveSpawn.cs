@@ -9,6 +9,7 @@ public class WaveSpawn : MonoBehaviour {
     public Wave[] waves;
 
     public Transform spawnPoint;
+  
 
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
